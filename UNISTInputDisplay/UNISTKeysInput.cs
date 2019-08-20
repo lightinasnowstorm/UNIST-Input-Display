@@ -24,6 +24,7 @@ namespace UNISTInputDisplay
 
         public UNISTKeysInput(string SettingsFilename)
         {
+            Interceptor = new InterceptKeys(this);
             if (!File.Exists(SettingsFilename))
             {
                 return;
@@ -41,7 +42,7 @@ namespace UNISTInputDisplay
                 D = strToKey(KeySettings.D);
             }
             catch { }
-            Interceptor = new InterceptKeys(this);
+            
         }
 
         public InputState GetCurrentButtonState()
